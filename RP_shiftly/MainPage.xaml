@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RP_shiftly.MainPage"
+             BackgroundColor="#F4F6F8"
+             Shell.NavBarIsVisible="False">
+
+    <!-- rozdelenie stranky na obsah a hornu listu  -->
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- horna lista -->
+        <Grid Grid.Row="0" 
+              ColumnDefinitions="*,Auto"
+              Padding="30,12" 
+              BackgroundColor="#1E3A8A">
+            <Label Text="Shiftly" 
+                   FontSize="24" 
+                   FontAttributes="Bold"
+                   TextColor="White" 
+                   VerticalOptions="Center" />
+            <Button Grid.Column="1" 
+                    Text="⚙ Nastavenia"
+                    BackgroundColor="#E3ECF9" 
+                    TextColor="#1E3A8A"
+                    CornerRadius="8" 
+                    Clicked="StlacenieNastavenii" />
+        </Grid>
+
+        <!-- hlavny obsah (dva stĺpce) -->
+        <Grid Grid.Row="1" ColumnDefinitions="*,*"
+              Padding="30" ColumnSpacing="30">
+
+            <!-- lavy stlpcek: dva svetlejsie obdĺžnicky pod sebou -->
+            <Grid Grid.Column="0" RowDefinitions="*,*" RowSpacing="30">
+
+                <!-- horny - datum a cas -->
+                <Border Grid.Row="0" 
+                        BackgroundColor="#E3ECF9"
+                        StrokeThickness="0" 
+                        Padding="30"
+                        StrokeShape="RoundRectangle 24">
+                    <VerticalStackLayout Spacing="10" 
+                                         VerticalOptions="Center">
+                        <Label x:Name="TimeLabel" 
+                               Text="00:00:00"
+                               FontSize="64" 
+                               FontAttributes="Bold"
+                               TextColor="#1E3A8A" />
+                        <Label x:Name="DateLabel" 
+                               Text="Dátum"
+                               FontSize="22" 
+                               TextColor="#374151" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- dolny - kto pracuje -->
+                <Border Grid.Row="1" 
+                        BackgroundColor="#E3ECF9"
+                        StrokeThickness="0" 
+                        Padding="30"
+                        StrokeShape="RoundRectangle 24">
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Pracujú:" 
+                               FontSize="24"
+                               FontAttributes="Bold" 
+                               TextColor="#1E3A8A" />
+                        
+                        <!-- toto bude potom vypisovat zamestnancov -->
+                        
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+
+            <!-- pravy stlpcek: prihlasenie  + registracia mensie pod tym -->
+            <Grid Grid.Column="1" RowDefinitions="3*,*" RowSpacing="30">
+
+                <!-- prihlasenie -->
+                <Border Grid.Row="0"
+                        BackgroundColor="#1E3A8A"
+                        StrokeThickness="0"
+                        Padding="40"
+                        StrokeShape="RoundRectangle 24">
+                    <VerticalStackLayout VerticalOptions="Center" 
+                                         Spacing="16">
+                        <Label Text="☕ PRIHLÁSENIE"
+                               FontSize="30"
+                               FontAttributes="Bold"
+                               TextColor="White"
+                               HorizontalOptions="Center" />
+
+                        <Entry x:Name="LoginEntry"
+                               Placeholder="Meno"
+                               BackgroundColor="White"
+                               TextColor="#1E3A8A"
+                               PlaceholderColor="#9CA3AF" />
+
+                        <Entry x:Name="PasswordEntry"
+                               Placeholder="Heslo"
+                               IsPassword="True"
+                               BackgroundColor="White"
+                               TextColor="#1E3A8A"
+                               PlaceholderColor="#9CA3AF" />
+
+                        <Button Text="Prihlásiť sa"
+                                BackgroundColor="#E3ECF9"
+                                TextColor="#1E3A8A"
+                                FontAttributes="Bold"
+                                CornerRadius="8"
+                                Clicked="KliknutiePrihlasenia" />   <!-- toto neskor pojde na info pre zamestnancov (zatial iba vizual - C#) -->
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- registracia -->
+                <Border Grid.Row="1"
+                        BackgroundColor="#E3ECF9"
+                        StrokeThickness="0"
+                        Padding="20"
+                        StrokeShape="RoundRectangle 24">
+                    <VerticalStackLayout VerticalOptions="Center" 
+                                         Spacing="10">
+                        <Label Text="Si tu nový?"
+                               FontSize="18"
+                               TextColor="#374151"
+                               HorizontalOptions="Center" />
+                        <Button Text="Zaregistrovať sa"
+                                BackgroundColor="#1E3A8A"
+                                TextColor="White"
+                                CornerRadius="8"
+                                Clicked="KliknutieRegistracie" />  <!-- to co prihasenei  - c# -->
+                    </VerticalStackLayout>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</ContentPage>
