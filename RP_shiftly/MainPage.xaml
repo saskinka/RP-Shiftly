@@ -25,6 +25,8 @@
                     CornerRadius="8" 
                     Clicked="StlacenieNastavenii" />
         </Grid>
+        
+        <!-- Test -->
 
         <!-- hlavny obsah (dva stĺpce) -->
         <Grid Grid.Row="1" ColumnDefinitions="*,*"
